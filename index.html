@@ -12,6 +12,34 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- HEADER STABILITY FIX: pin header at top, kill any transition/animation
+         that used to be coordinated by the site's own JS (now stripped) —
+         that mismatch was causing a scroll-time glitch (color fringing +
+         a stray "Trending" row) as the browser tried to animate between
+         inconsistent states. -->
+    <style>
+      #js-header {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 999999 !important;
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        filter: none !important;
+        will-change: auto !important;
+      }
+      #js-header * {
+        transition: none !important;
+        animation: none !important;
+      }
+      .w-subheader {
+        position: static !important;
+        top: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    </style>
+
     <!-- FAVICON -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 64 64%22%3E%3Crect width%3D%2264%22 height%3D%2264%22 rx%3D%2212%22 fill%3D%22%23000000%22%2F%3E%3Ctext x%3D%2232%22 y%3D%2245%22 font-family%3D%22Arial Black%2C Arial%2C sans-serif%22 font-weight%3D%22900%22 font-size%3D%2230%22 text-anchor%3D%22middle%22%3E%3Ctspan fill%3D%22%23ffffff%22%3EE%3C%2Ftspan%3E%3Ctspan fill%3D%22%23ee8413%22%3EM%3C%2Ftspan%3E%3C%2Ftext%3E%3C%2Fsvg%3E">
     <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 64 64%22%3E%3Crect width%3D%2264%22 height%3D%2264%22 rx%3D%2212%22 fill%3D%22%23000000%22%2F%3E%3Ctext x%3D%2232%22 y%3D%2245%22 font-family%3D%22Arial Black%2C Arial%2C sans-serif%22 font-weight%3D%22900%22 font-size%3D%2230%22 text-anchor%3D%22middle%22%3E%3Ctspan fill%3D%22%23ffffff%22%3EE%3C%2Ftspan%3E%3Ctspan fill%3D%22%23ee8413%22%3EM%3C%2Ftspan%3E%3C%2Ftext%3E%3C%2Fsvg%3E">
@@ -14992,9 +15020,6 @@ html body[data-scroll-locked] {
                     </div>
                 
                                                                 
-                                                                        <div class="meta_txt article-date updated"><span class="is-mobile-hidden">Updated&nbsp;</span>
-                                                <time datetime="2026-03-26T23:00:20Z">Mar 26, 2026, 7:00 PM EDT</time>
-                    </div>
                 
                 
             </div>
